@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="stylesheet" href="css/index.css">	
+</head>
+<body ng-app="app" ng-controller="slis">
+
+<header class="header">
+	<a href="#"><i class="icon iconfont icon-left"></i></a>
+	<h3>订单支付</h3>
+	<a href="#"><i class="icon iconfont icon-xinxi"></i></a>
+</header>
+<section class="section">
+	<div class="top">
+		<div class="phone"><b>路飞</b><span>138****8888</span></div>
+		<div class="nav">
+			<i class="icon iconfont icon-weizhi"></i>北京是海淀区知青路北京市海淀区知青路北京市海淀区知青路
+		</div>		
+		<i class="icon iconfont icon-right"></i>
+	</div>
+
+	<div class="shop">
+		<div class="title">
+			<i class="icon iconfont icon-shangdian"></i>
+			<span>恒之然旗舰店</span>
+		</div>
+		<dl>
+			<dt><img src="images/images/icon_03.png" alt=""></dt>
+			<dd>
+				<p>维维咀嚼水果大豆帮橙味咀嚼益嚼水果大豆帮味</p>
+				<div class="cost">
+					<div class="price">
+						<div class="jiage">￥{{price}}</div>
+						<div class="yuajia">￥1000.00</div>
+					</div>
+					<div class="count">
+						<span ng-click="prev()">-</span>
+						<span ng-bind="num"></span>
+						<span ng-click="next()">+</span>
+					</div>
+				</div>
+			</dd>
+		</dl>	
+		<ul class="list">
+			<li><em>商品总金额</em><span>￥{{sum}}</span></li>
+			<li><em>运费:</em><span>￥{{yun}}</span></li>
+			<li><em>总额(含运费):</em><span>￥{{cut}}</span></li>
+		</ul>	
+	</div>
+	<div class="btnOff">
+		<label for="ro1" >
+			<span>余额支付:￥{{ye}}</span>
+			<div class="lis">
+				<input type="checkbox" ng-model="bel" id="ro1" ng-change="balan()">
+				<div class="prant"><div class="radio"></div></div>		
+			</div>
+		</label>
+		<label for="ro2" ng-click="balan()">
+			<span>奖金支付:￥{{ye2}}</span>
+			<div class="lis">
+				<input type="checkbox" ng-model="bel2" id="ro2">
+				<div class="prant"><div class="radio"></div></div>
+			</div>
+		</label>
+		<label>
+			<span>其他方式</span>
+			<div class="left">
+				<i class="icon iconfont icon-right"></i>
+			</div>
+		</label>
+	</div>
+</section>
+<footer class="footer">
+	<div class="money" ng-show="full">金额不足，请选择其他方式支付!</div>
+	<div class="sum">
+		<p class="total">
+			<span>总计:￥{{totalPrice}}</span>
+		</p>
+		<p>(含运费)</p>
+	</div>
+	<div class="btn" ng-click="submit()">提交订单</div>
+</footer>
+<script src="public/index.js"></script>
+</body>
+</html>
